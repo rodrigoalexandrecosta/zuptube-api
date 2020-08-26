@@ -112,6 +112,26 @@
 			<artifactId>mockito-junit-jupiter</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+			<version>3.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.passay</groupId>
+			<artifactId>passay</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.58</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-crypto</artifactId>
+			<version>5.2.2.RELEASE</version>
+		</dependency>
 
 
 	</dependencies>
@@ -180,19 +200,20 @@
 			<plugin>
 				<groupId>io.fabric8</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.27.2</version>
+				<version>0.33.0</version>
 				<configuration>
 					<images>
 						<image>
 							<name>zupbootcamp/zuptube-api-postgres-it</name>
 							<alias>zuptube-api-postgres-it</alias>
 							<build>
-								<dockerFileDir>${project.basedir}/src/main/resources/db/schema</dockerFileDir>
+<!--								<dockerFileDir>${project.basedir}/src/main/resources/db/schema</dockerFileDir>-->
+								<contextDir>${project.basedir}/src/main/resources/db/schema</contextDir>
 								<filter>@</filter>
 							</build>
 							<run>
 								<ports>
-									<port>5432</port>
+									<port>5432:5432</port>
 								</ports>
 							</run>
 						</image>
@@ -213,6 +234,37 @@
 						<phase>verify</phase>
 						<goals>
 							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>fabric8-maven-plugin</artifactId>
+				<version>3.5.31</version>
+				<configuration>
+					<mode>kubernetes</mode>
+					<images>
+						<image>
+							<name>zupbootcamp/zuptube-api</name>
+							<alias>zuptube-api</alias>
+							<build>
+								<dockerFileDir>${project.basedir}/src/main/docker</dockerFileDir>
+								<assembly>
+									<descriptorRef>artifact</descriptorRef>
+								</assembly>
+							</build>
+						</image>
+					</images>
+				</configuration>
+				<executions>
+					<execution>
+						<id>fabric8</id>
+						<goals>
+							<goal>resource</goal>
+							<goal>build</goal>
+							<goal>helm</goal>
 						</goals>
 					</execution>
 				</executions>
