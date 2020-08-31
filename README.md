@@ -24,7 +24,7 @@ subsequentes.
 
 ### Features
 A Zuptube API conta, no momento, com seis features desenvolvidas: _account_, _channel_, _video_,
-_video-engagement_, _subscription_ e _search_engine_.
+_video-engagement_, _subscription_ e _search-engine_.
 
 #### _Account_
 A feature de conta de usuário fornece endpoints para criação, edição e resgate de usuários.
