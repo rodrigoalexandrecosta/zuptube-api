@@ -43,7 +43,7 @@ as informações. No entanto, tanto o `MultipartFile` do video quanto as infos d
 e por esse motivo a request construída precisa ser consistente, do contrário o controller não a aceitará. No estado 
 atual da API, não há solução para esse problema, e portanto a criação de novos vídeos depende de outros passos 
 citados abaixo na sessão de Collections do Postman. Ademais, fica aqui registrada a decepção de quem passou a semana 
-toda codando e encontrou problemas graves como esse no domingo a noite.
+toda codando e só encontrou problemas graves como esse no domingo a noite.
 
 #### _Video-Engagement_
 Feature responsável por intermediar as relações entre usuários e vídeos, como 'like' e comentários. Nossa API possui
@@ -65,7 +65,7 @@ termos de performance, é longe do ideal, e está inserida aqui apenas no contex
 Na raiz do projeto encontra-se o arquivo `zuptube-api-collections.json`, que contém a coleção de requests
 utilizadas nos endpoints disponível na API. Dados os problemas citados anteriormente, em especial com o
 endpoint de upload e criação de vídeos, sugerimos o seguinte fluxo:
-1. subir o banco manualmente com o comando `docker run -p 5432:5432 zupbootcamp-zuptube-api-postgres-it;
+1. subir o banco manualmente com o comando `docker run -p 5432:5432 zupbootcamp-zuptube-api-postgres-it`;
 2. rodar a aplicação pelo Intellij ou via `docker-compose up -d`;
 3. rodar manualmente o teste de criação de novos vídeos, presente no arquivo `VideoServiceIT.groovy`;
 4. conectar-se manualmente ao banco para recuperar o `video id` criado;
