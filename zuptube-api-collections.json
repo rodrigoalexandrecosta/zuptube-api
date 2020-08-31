@@ -1,0 +1,937 @@
+{
+	"info": {
+		"_postman_id": "e54bb7c0-f45d-4730-9625-e61f01a30a55",
+		"name": "Zuptube API",
+		"description": "Postman collection for Zuptube API endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Steven\",\n    \"last_name\": \"Spielberg\",\n    \"email\": \"steve@spielberg.com\",\n    \"phone\": \"+5519999887766\",\n    \"password\": \"bootcamp@123\",\n    \"locale\": \"pt-BR\",\n    \"timezone\": \"America/Sao_Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/accounts",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/accounts",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/accounts/{{account-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"{{account-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Quentin\",\n    \"last_name\": \"Tarantino\",\n    \"email\": \"tarantino@quentin.com\",\n    \"phone\": \"+5519999887766\",\n    \"locale\": \"pt-BR\",\n    \"timezone\": \"America/Sao_Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/accounts/{{account-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"{{account-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\": \"123@bootcamp\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/accounts/{{account-id}}:update-password",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"{{account-id}}:update-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/accounts/{{account-id}}:delete",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"{{account-id}}:delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Undelete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/accounts/{{account-id}}:undelete",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"{{account-id}}:undelete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Channel",
+			"item": [
+				{
+					"name": "Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/{{channel-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"{{channel-id}}"
+							]
+						},
+						"description": "Channel id is visible after a find by account id."
+					},
+					"response": []
+				},
+				{
+					"name": "Find by account id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/{{account-id}}:find-channel",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"{{account-id}}:find-channel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"KEXP\",\n\t\"description\": \"KEXP Zuptube Channel. Tune in at 90.3-FM in Seattle.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/{{channel-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"{{channel-id}}"
+							]
+						},
+						"description": "Channel id is visible after a find by account id."
+					},
+					"response": []
+				},
+				{
+					"name": "Update by account id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Kung fu movie clips\",\n\t\"description\": \"Best of flying-around-kung-fu movies.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/{{account-id}}:update-by-account",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"{{account-id}}:update-by-account"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Video",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Tom and Jerry\",\n\t\"description\": \"Cat and rat playing together.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/{{channel-id}}/videos",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"{{channel-id}}",
+								"videos"
+							]
+						},
+						"description": "Incorrect request, unfortunately."
+					},
+					"response": []
+				},
+				{
+					"name": "Find all by channel id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/{{channel-id}}/videos",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"{{channel-id}}",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/videos/{{video-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"videos",
+								"{{video-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/videos/{{video-id}}:delete",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"videos",
+								"{{video-id}}:delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Undelete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/videos/{{video-id}}:undelete",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"videos",
+								"{{video-id}}:undelete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Video Engagement",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\": \"Great video!\",\n\t\"liked\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/videos/{{video-id}}/video-engagements/{{account-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"videos",
+								"{{video-id}}",
+								"video-engagements",
+								"{{account-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/videos/video-engagements/{{video-engagement-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"videos",
+								"video-engagements",
+								"{{video-engagement-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by account id and video id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/videos/{{video-id}}/video-engagements/{{account-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"videos",
+								"{{video-id}}",
+								"video-engagements",
+								"{{account-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all by video ai",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/videos/{{video-id}}/video-engagements",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"videos",
+								"{{video-id}}",
+								"video-engagements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all by account id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/videos/video-engagements/{{account-id}}:find-by-account",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"videos",
+								"video-engagements",
+								"{{account-id}}:find-by-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\": \"Another great video, congrats!\",\n\t\"liked\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/videos/video-engagements/{{video-engagement-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"videos",
+								"video-engagements",
+								"{{video-engagement-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update by account id and video id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\": \"Amazing! Thank you!\",\n\t\"liked\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/videos/{{video-id}}/video-engagements/{{account-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"videos",
+								"{{video-id}}",
+								"video-engagements",
+								"{{account-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Subscription",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/subscriptions/{{channel-id}}/{{account-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"subscriptions",
+								"{{channel-id}}",
+								"{{account-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/subscriptions/{{channel-id}}/{{account-id}}",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"subscriptions",
+								"{{channel-id}}",
+								"{{account-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all by channel id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/subscriptions/{{channel-id}}:find-by-channel",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"subscriptions",
+								"{{channel-id}}:find-by-channel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all by account id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/subscriptions/{{account-id}}:find-by-account",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"subscriptions",
+								"{{account-id}}:find-by-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/subscriptions/{{channel-id}}/{{account-id}}:delete",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"subscriptions",
+								"{{channel-id}}",
+								"{{account-id}}:delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Undelete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/channels/subscriptions/{{channel-id}}/{{account-id}}:undelete",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"channels",
+								"subscriptions",
+								"{{channel-id}}",
+								"{{account-id}}:undelete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Search Engine",
+			"item": [
+				{
+					"name": "Search video",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/searches?param=\"Timewarp\"",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"searches"
+							],
+							"query": [
+								{
+									"key": "param",
+									"value": "\"Timewarp\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search video in channel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zuptube-api}}/api/v1/searches/channels/{{channel-id}}?param=\"Timewarp\"",
+							"host": [
+								"{{zuptube-api}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"searches",
+								"channels",
+								"{{channel-id}}"
+							],
+							"query": [
+								{
+									"key": "param",
+									"value": "\"Timewarp\""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "beedf125-a988-4457-b2c2-0876c3add951",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "240724a9-c276-4cd1-b79f-7d07e0991342",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b2cd58d8-f5e1-49bd-b5ec-58de7d926360",
+			"key": "zuptube-api",
+			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"id": "e1bd38ea-809c-403b-a81f-a52dfe7e1904",
+			"key": "account-id",
+			"value": "e1943f66-afd4-4a15-9e14-e8d15863685a",
+			"type": "string"
+		},
+		{
+			"id": "0622fddc-f85a-453e-af17-d73ad116dd3b",
+			"key": "channel-id",
+			"value": "89dead65-697b-443e-84f4-ea6a99560400",
+			"type": "string"
+		},
+		{
+			"id": "a05a761e-6ecf-415e-9de3-fb8d076ac375",
+			"key": "video-id",
+			"value": "cb8686e8-176f-4866-89ca-5d95e46413a8",
+			"type": "string"
+		},
+		{
+			"id": "44f41790-09eb-4a5a-bda6-ce89da6bbe46",
+			"key": "video-engagement-id",
+			"value": "4d166c50-4236-4141-af4f-b3ee7e397fa5",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

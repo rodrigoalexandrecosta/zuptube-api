@@ -207,7 +207,6 @@
 							<name>zupbootcamp/zuptube-api-postgres-it</name>
 							<alias>zuptube-api-postgres-it</alias>
 							<build>
-<!--								<dockerFileDir>${project.basedir}/src/main/resources/db/schema</dockerFileDir>-->
 								<contextDir>${project.basedir}/src/main/resources/db/schema</contextDir>
 								<filter>@</filter>
 							</build>

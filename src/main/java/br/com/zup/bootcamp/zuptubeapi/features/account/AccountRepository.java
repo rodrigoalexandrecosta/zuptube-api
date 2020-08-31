@@ -32,7 +32,7 @@ public class AccountRepository {
             "(:firstName, :lastName, :email, :phone, :password, :locale, :timezone) " +
             "RETURNING id";
 
-    private static final String FIND_ALL = "SELECT * FROM account";
+    private static final String FIND_ALL = "SELECT * FROM account WHERE NOT removed";
 
     private static final String FIND_BY_ID = "SELECT * FROM account " +
             "WHERE id = ? AND NOT removed";
@@ -114,7 +114,7 @@ public class AccountRepository {
         jdbcTemplate.update(UPDATE_PASSWORD, password, accountId);
     }
 
-    void deleteOrUndelete(final Boolean deleteOrUndelete, final UUID accountId) {
+    void deleteOrUndelete(final UUID accountId, final Boolean deleteOrUndelete) {
         jdbcTemplate.update(DELETE_UNDELETE, deleteOrUndelete, accountId);
     }
 

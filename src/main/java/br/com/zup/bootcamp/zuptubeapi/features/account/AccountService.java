@@ -1,7 +1,9 @@
 package br.com.zup.bootcamp.zuptubeapi.features.account;
 
 import br.com.zup.bootcamp.zuptubeapi.exception.NotFoundException;
+import br.com.zup.bootcamp.zuptubeapi.features.channel.ChannelService;
 import br.com.zup.bootcamp.zuptubeapi.model.entity.Account;
+import br.com.zup.bootcamp.zuptubeapi.model.entity.Channel;
 import br.com.zup.bootcamp.zuptubeapi.model.to.request.CreateAccountRequest;
 import br.com.zup.bootcamp.zuptubeapi.model.to.request.UpdateAccountRequest;
 import br.com.zup.bootcamp.zuptubeapi.model.to.request.UpdatePasswordRequest;
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
 public class AccountService {
 
     private final AccountRepository accountRepository;
+    private final ChannelService channelService;
     private final CustomPasswordEncoder passwordEncoder;
     private final PasswordValidator passwordValidator;
 
@@ -35,7 +38,10 @@ public class AccountService {
 
         final String encodedPassword = this.passwordEncoder.encode(password);
         request.setPassword(encodedPassword);
-        return this.accountRepository.create(request);
+
+        final UUID accountId = this.accountRepository.create(request);
+        this.channelService.create(new Channel(accountId, request));
+        return accountId;
     }
 
     public List<Account> findAll() {
@@ -82,7 +88,8 @@ public class AccountService {
     @Transactional
     public void deleteOrUndeleteById(final UUID accountId, final Boolean deleteOrUndelete) {
         if (exists(accountId)) {
-            this.accountRepository.deleteOrUndelete(deleteOrUndelete, accountId);
+            this.channelService.deleteOrUndeleteByAccountId(accountId, deleteOrUndelete);
+            this.accountRepository.deleteOrUndelete(accountId, deleteOrUndelete);
         } else {
             throw new NotFoundException("message.account.not-found");
         }

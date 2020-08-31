@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Zuptube API video samples and storage ###
+.sample

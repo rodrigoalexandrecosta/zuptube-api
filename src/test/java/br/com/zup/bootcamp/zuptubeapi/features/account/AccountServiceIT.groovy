@@ -39,7 +39,7 @@ class AccountServiceIT extends Specification {
 
     def "Try to create a new account with a weak password"() {
         given: "I have a new account information with a weak password."
-        CreateAccountRequest request = AccountMock.buildCreateAccountRequest();
+        CreateAccountRequest request = AccountMock.buildCreateAccountRequest()
         request.setPassword("123")
 
         when: "I handle the new account to be persistent."

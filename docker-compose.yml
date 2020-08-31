@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  account:
+    build: ./target/docker/zupbootcamp/zuptube-api/build
+    image: zupbootcamp/zuptube-api
+    container_name: zuptube-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - zuptube-api-db
+    environment:
+      - DB_HOSTNAME=postgres.local
+      - DB_PORT=5432
+      - DB_NAME=postgres
+      - DB_USERNAME=bootcamp
+      - DB_PWD=bootcamp
+      - ACTIVE_PROFILE=local
+    links:
+      - zuptube-api-db:postgres.local
+
+  zuptube-api-db:
+    build: ./target/docker/zupbootcamp/zuptube-api-postgres-it/build
+    image: zupbootcamp/zuptube-api-postgres-it
+    container_name: zuptube-api-postgres-it
+    environment:
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"

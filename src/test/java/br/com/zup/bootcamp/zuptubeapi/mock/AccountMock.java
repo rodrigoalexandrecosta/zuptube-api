@@ -4,11 +4,17 @@ import br.com.zup.bootcamp.zuptubeapi.model.entity.Account;
 import br.com.zup.bootcamp.zuptubeapi.model.to.request.CreateAccountRequest;
 import br.com.zup.bootcamp.zuptubeapi.model.to.request.UpdateAccountRequest;
 import br.com.zup.bootcamp.zuptubeapi.model.to.request.UpdatePasswordRequest;
+import br.com.zup.bootcamp.zuptubeapi.model.to.response.AccountResponse;
 import net.bytebuddy.utility.RandomString;
 
 import java.util.Random;
+import java.util.UUID;
 
-public abstract class AccountMock {
+public final class AccountMock {
+
+    private AccountMock() {
+        throw new IllegalStateException("Class not meant for instantiation.");
+    }
 
     public static CreateAccountRequest buildCreateAccountRequest() {
         Random random = new Random();
@@ -43,6 +49,15 @@ public abstract class AccountMock {
 
     public static Account buildAccount() {
         return Account.builder()
+                .build();
+    }
+
+    public static AccountResponse buildAccountResponse() {
+        return AccountResponse.builder()
+                .id(UUID.randomUUID())
+                .firstName("Siobhan")
+                .lastName("Roy")
+                .removed(false)
                 .build();
     }
 }

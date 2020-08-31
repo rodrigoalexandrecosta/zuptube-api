@@ -41,11 +41,6 @@ public class AccountRestControllerTest {
     @MockBean
     private AccountService accountService;
 
-    @BeforeEach
-    public void initTest() {
-        when(accountService.create(any())).thenReturn(UUID.randomUUID());
-    }
-
     @Test
     void create() throws Exception {
         final String body = objectMapper.writeValueAsString(AccountMock.buildCreateAccountRequest());
@@ -272,10 +267,7 @@ public class AccountRestControllerTest {
     @Test
     void findAll() throws Exception {
         Account account1 = AccountMock.buildAccount();
-        account1.setId(UUID.randomUUID());
         Account account2 = AccountMock.buildAccount();
-        account2.setId(UUID.randomUUID());
-
         final List<Account> accounts = List.of(account1, account2);
 
         when(accountService.findAll()).thenReturn(accounts);

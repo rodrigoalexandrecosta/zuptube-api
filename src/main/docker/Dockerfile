@@ -11,6 +11,6 @@ ENV DB_PWD="bootcamp"
 
 EXPOSE 8080
 
-COPY maven/*.jar picuacdp-api.jar
+COPY maven/*.jar zuptube-api.jar
 
-ENTRYPOINT [ "java" , "-Xms128m",  "-Xmx400m", "-jar", "picuacdp-api.jar", "--jdbc.url=jdbc:postgresql://${DB_HOSTNAME}:${DB_PORT}/${DB_NAME}", "--jdbc.password=${DB_PWD}", "--jdbc.username=${DB_USERNAME}"]
+ENTRYPOINT [ "java" , "-Xms128m",  "-Xmx400m", "-jar", "zuptube-api.jar", "--jdbc.url=jdbc:postgresql://${DB_HOSTNAME}:${DB_PORT}/${DB_NAME}", "--jdbc.password=${DB_PWD}", "--jdbc.username=${DB_USERNAME}"]
