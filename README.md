@@ -63,7 +63,8 @@ termos de performance, é longe do ideal, e está inserida aqui apenas no contex
 
 ### _Postman Collections_
 Na raiz do projeto encontra-se o arquivo `zuptube-api-collections.json`, que contém a coleção de requests
-utilizadas nos endpoints disponível na API. Dados os problemas citados anteriormente, em especial com o
+utilizadas nos endpoints disponível na API. A collection possui variáveis específicas que devem ser manipuladas para
+o correto funcionamento da API. Dados os problemas citados anteriormente, em especial com o
 endpoint de upload e criação de vídeos, sugerimos o seguinte fluxo:
 1. subir o banco manualmente com o comando `docker run -p 5432:5432 zupbootcamp/zuptube-api-postgres-it`;
 2. rodar a aplicação pelo Intellij ou via `docker-compose up -d`;
