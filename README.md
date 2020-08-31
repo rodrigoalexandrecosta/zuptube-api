@@ -65,7 +65,7 @@ termos de performance, é longe do ideal, e está inserida aqui apenas no contex
 Na raiz do projeto encontra-se o arquivo `zuptube-api-collections.json`, que contém a coleção de requests
 utilizadas nos endpoints disponível na API. Dados os problemas citados anteriormente, em especial com o
 endpoint de upload e criação de vídeos, sugerimos o seguinte fluxo:
-1. subir o banco manualmente com o comando `docker run -p 5432:5432 zupbootcamp-zuptube-api-postgres-it`;
+1. subir o banco manualmente com o comando `docker run -p 5432:5432 zupbootcamp/zuptube-api-postgres-it`;
 2. rodar a aplicação pelo Intellij ou via `docker-compose up -d`;
 3. rodar manualmente o teste de criação de novos vídeos, presente no arquivo `VideoServiceIT.groovy`;
 4. conectar-se manualmente ao banco para recuperar o `video id` criado;
